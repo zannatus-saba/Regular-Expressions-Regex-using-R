@@ -1,0 +1,32 @@
+reg_string1=c('Cathrin', 'Cathryn', 'Cathrinn', 'Cathrynn', 'Cathrine', 'Cathryne', 'Cathrinne', 'Cathrynne')
+grep("^Cathr", reg_string1, perl = TRUE, value = TRUE)
+
+reg_string2=c('Catherin', 'Catheryn', 'Catherinn', 'Catherynn', 'Catherine', 'Catheryne', 'Catherinne', 'Catherynne')
+grep("^Cathe", reg_string2, perl = TRUE, value = TRUE)
+
+reg_string3=c('Kathrin', 'Kathryn', 'Kathrinn', 'Kathrynn', 'Kathrine', 'Kathryne', 'Kathrinne', 'Kathrynne') 
+grep("^Kathr", reg_string3, perl = TRUE, value = TRUE)
+
+reg_string4=c('Katherin', 'Katheryn', 'Katherinn', 'Katherynn', 'Kattherine', 'Katheryne', 'Katherinne', 'Katherynne')
+grep("^Kat", reg_string4, perl = TRUE, value = TRUE)
+
+reg_string5=c('Cathrin', 'Cathryn', 'Cathrinn', 'Cathrynn', 'Cathrine', 'Cathryne', 'Cathrinne', 'Cathrynne',
+              'Catherin', 'Catheryn', 'Catherinn', 'Catherynn', 'Catherine', 'Catheryne', 'Catherinne', 'Catherynne',
+              'Kathrin', 'Kathryn', 'Kathrinn', 'Kathrynn', 'Kathrine', 'Kathryne', 'Kathrinne', 'Kathrynne',
+              'Katherin', 'Katheryn', 'Katherinn', 'Katherynn', 'Kattherine', 'Katheryne', 'Katherinne', 'Katherynne')
+grep(".at.", reg_string5, perl = TRUE, value = TRUE)
+
+library("stringr")
+library("tidyverse")
+
+length(sentences)
+print(sentences)
+adverb="[^ ]+ly"
+(matched_strings2 = str_subset(sentences, adverb))
+(matches2 = str_extract_all(matched_strings2, adverb))
+
+adverb1="([[^ ]+ly]+[?!ly]) (?!the)(?!a)" 
+(matched_strings3 = str_subset(sentences, adverb1))
+(matches3 = str_extract(matched_strings3, adverb1))
+head(matches3)
+
